@@ -1,0 +1,15 @@
+body{
+    background-color: aliceblue;
+}
+
+
+.main-container{
+    width: 40%;
+    background-color: blueviolet;
+    border-radius: 15px;
+}
+
+.signup-text{
+    margin-left: 45%;
+    text-decoration: none;
+}

@@ -1,0 +1,168 @@
+
+{% extends 'core.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/homes.css' %}">
+
+
+<body class="text-dark">
+
+    <div class="bg-image">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="row">    
+              <h1 class="text-center">Welcome to GCUF Campus Connect</h1>
+            </div>
+            <div class="row button-login">
+              {% if request.user.is_authenticated %}
+              <a href="{% url 'profile' user.id %}" >
+                <button   class="btn btn-primary mb-3 button border-2 shadow-lg" >Profile</button> 
+              </a>          
+               {% endif %}
+            
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- ------------first image conatiner  -->
+
+    <div class="container  text-center text-dark main-container">
+        <div class="row align-items-start text-dark">
+          <div class="col">
+             <div class="row">
+                <div class="col border-2 shadow-lg heading-box">
+                    <h1 class="text-center text-light">NEWS & NOTIFICATION</h1>
+                </div>
+
+             </div>
+            {% for news in newss %}
+            <div class="card mb-3 mt-5 border-2 shadow-lg ">
+                {% if news.image %}
+                <img src="{{news.image.url}}" class="card-img-top" alt="...">
+                {% endif %}
+                <div class="card-body">
+                  <h5 class="card-title text-danger">News: {{news.title}}</h5>
+                  {% if  news.description %}
+                  <p class="card-text">{{news.description}}</p>
+                  {% endif %}
+                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+              {% endfor %}
+
+            
+           
+        
+
+          </div>
+
+
+          <div class="col staff-box border-2 mb-5 shadow-lg">
+
+          <div class="container mt-5 border-2 shadow-lg profile-container">
+              <div class="row">
+                  <div class="col-md-6 offset-md-3 mt-2 text-dark">
+                      <div class="profile-details">
+                        {% if user.image %}
+                          <img src="{{user.image.url}}" class="mb-3 profile-img" alt="User Image"> <!-- User image -->
+                        {% endif %}
+                          <h2>{{user.username}}</h2> <!-- User name -->
+                          <p>Email: {{user.email}}</p> <!-- User email -->
+                          <p>Role: {{user.role}}</p> <!-- User role -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col mt-5 mb-5 border-2 shadow-lg heading-box2">
+                <h1 class="text-center text-light">STAFF CONTACTS</h1>
+          </div>
+
+            
+          
+            {% for user in  users %}
+            {% if user.role == 'staff' %}
+            <div class="container profile-box  mb-5 border-2 shadow-lg">
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        <img src="{{user.image.url}}" class="img-fluid img-thumbnail  custom-image" alt="User Image">
+                    </div>
+                    <div class="col">
+                        <div class="user-name-box">
+                            <a href="{% url 'profile' user.id %}" class="text-primary">{{user.username}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endif %} 
+            {% endfor %}
+            
+
+      
+       
+            </div>
+       
+          </div>
+
+        </div>
+
+
+    </div>
+
+    <footer class="footer mt-5 footer-box">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card mb-3 shadow-lg mt-5 text-light developer">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{% static '../../app/../static/media/images/layyah_campus.jpg'  %}" class="img-fluid footer-img" alt="Developer Image">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Salman Ahmad</h5>
+                      <p class="card-text">Email: salman@gmail.com</p>
+                      <p class="card-text">Phone: +123456789</p>
+                      <p class="card-text">Bio: software developer.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card mb-3 text-light mt-5 shadow-lg developer">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{% static '../../app/../static/media/images/layyah_campus.jpg'  %}" class="img-fluid footer-img" alt="Developer Image">
+
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Umair Ahmad</h5>
+                      <p class="card-text">Email: umair@gmail.com</p>
+                      <p class="card-text">Phone: +987654321</p>
+                      <p class="card-text">Bio: Web Developer.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </footer>
+
+
+
+  
+        
+        
+</body>
+
+
+{% endblock %}

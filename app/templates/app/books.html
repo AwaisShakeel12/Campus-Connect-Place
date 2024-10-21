@@ -1,0 +1,79 @@
+{% extends 'core.html' %}
+
+{% load static%}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/books.css' %}">
+
+
+
+
+<div class="container">
+  <div class="container mt-3">
+    <h1 class="text-center">GCUF Campus Connect Books</h1>
+    
+  </div>
+    <div class="container mt-5 border-2 shadow-lg main-container">
+        <div class="row">
+            <div class="col">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Book Name</label>
+                    <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="enter book name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Details</label>
+                    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">files input</label>
+                    <input class="form-control" name="file" type="file" id="formFileMultiple" multiple>
+                  </div>
+                  <button type="submit" value="submit" onclick="BookSubmit()" class="btn btn-primary mb-3">Upload</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    {% for book in books %}
+    <div class="container bookContainer mt-5 ">
+      <div class="row">
+        <!-- Right box for book details -->
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header cardHeader d-flex align-items-center justify-content-between">
+              <h5 class="card-title mb-0 text-light">{{book.title}}</h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text">{{book.description}}</p>
+            </div>
+            <div class="card-footer d-flex justify-content-between align-items-center"> <!-- Added d-flex and justify-content-between classes -->
+              <a href="{{book.file.url}}" type="button" class="btn btn-primary">Download</a>
+              <div class="d-flex align-items-center"> <!-- Added d-flex and align-items-center classes -->
+                <!-- <a href="{% url 'profile' book.user.id %}" class="mb-0 ml-2 mr-2">{{book.user.username}}</a> Added ml-2 class for left margin -->
+                <!-- <img height="35" width="35" src="{{book.user.image.url}}" class="rounded-circle ml-2" alt="User Image"> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {% endfor %}
+
+</div>
+
+
+<script>
+  function BookSubmit(){
+    alert('your file has been uploaded')
+  }
+</script>
+
+
+{% endblock %}

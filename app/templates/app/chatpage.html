@@ -1,0 +1,255 @@
+{% load static %}
+
+<style>
+
+
+.sub-container{
+height: 100%;
+width: 100%;
+/* border: 2px solid blue; */
+padding: 10px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-direction: column;
+
+}
+
+
+.chat-body{
+width: 100%;
+height: 280px;
+/* border: 2px solid slateblue; */
+overflow: auto;
+/* display: flex;
+align-items: flex-start;
+justify-content: center; */
+}
+
+
+.chat-container2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+button{
+    background: slateblue;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    
+}
+
+.chat-box-received, .chat-box-sent{
+    width: 200px;
+    height: auto;
+    font-size: 14px;
+    background-color: slateblue;
+    color: white;
+    margin-left: auto;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding:10px 10px;
+    border-radius: 10px;
+}
+
+.chat-box-sent{
+    background-color: rebeccapurple;
+    color: white;
+    float: left;
+   
+}
+
+
+
+</style>
+
+
+<style>
+    .forms{
+        border: 1px solid slateblue;
+        
+        width: 100%;
+        border-radius: 5px;
+        padding: 10px 10px;
+        font-size: 18px;
+    }
+    
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+
+body{
+    margin-top: 100px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: slateblue;
+    font-family: Poppins;
+}
+
+
+
+.chat-container2{
+    width: 550px;
+    height: 580px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px 10px
+}
+
+/* .chat-container2{
+    width: 350px;
+    height: 580px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px 10px
+} */
+
+.sub-container{
+
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+   
+    
+
+}
+
+
+
+.chat-body{
+    width: 100%;
+    height: 280px;
+    overflow: auto;
+    
+}
+
+
+.chat-container2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+button{
+    background: slateblue;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    
+}
+
+.chat-box-received, .chat-box-sent{
+    width: 300px;
+    height: auto;
+    font-size: 14px;
+    background-color: slateblue;
+    color: white;
+    margin-left: auto;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding:10px;
+    border-radius: 10px;
+}
+
+.chat-box-sent{
+    background-color: rebeccapurple;
+    color: white;
+    float: left;
+   
+}
+
+
+
+</style>
+
+
+<div class="chat-container2">
+
+   
+
+
+        <div class="main-box">
+       
+            <div class="sub-container">
+                <div class="main-friends-box">
+                
+                <h1>all chats </h1>
+
+                <div class="chat-box-main">
+                    <div class="chat-body">
+
+                        {% for chat in chats %}
+                        {% if chat.msg_sender == user and chat.msg_receiver == profile %}
+
+                        <div class="chat-box-sent">
+                            <p> <img height="20" width="20" style="border-radius: 50px;" src="{{chat.msg_sender.image.url}}" alt=""> {{chat}}</p>
+                        </div>
+                            
+                        {% elif chat.msg_sender == profile and chat.msg_receiver == user %}
+                            <div class="chat-box-received">
+                                
+                                <p><img height="20" width="20" style="border-radius: 50px;" src="{{chat.msg_sender.image.url}}" alt="">  @{{chat.msg_sender}} {{chat}} </p>
+                            </div>
+                        {% endif %}
+
+                        {% endfor %}
+
+                        
+                        <div class="chat-box-sent" id ="chat-box-sent" style="display: none">
+               
+                        </div>
+
+                    </div>
+
+                    <div class="">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                             <p>{{form.body}}</p>
+                             <br>
+                             <input type="submit" value="submit">
+                        </form>
+                    </div>
+                    
+
+
+
+                </div>
+                </div>
+       
+            </div> 
+        
+        </div>
+
+        
+
+
+</div>
+
+
+
+

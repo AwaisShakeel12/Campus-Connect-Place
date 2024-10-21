@@ -1,0 +1,32 @@
+body{
+    background-color: aliceblue;
+}
+
+
+.main-container{
+    width: 60%;
+    background-color: aqua;
+    border-radius: 15px;
+}
+
+.bookContainer{
+    width: 65%;
+}
+
+
+.cardHeader{
+    background-color: rgb(16, 16, 52);
+    /* background-color: aqua; */
+    height: 10vh;
+
+}
+
+.cardImg{
+
+    max-height: 100vh;
+    
+}
+
+a{
+    text-decoration: none;
+}

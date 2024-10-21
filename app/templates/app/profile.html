@@ -1,0 +1,107 @@
+{% extends 'core.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/profiles2.css' %}">
+
+<body>
+    <div class="container">
+  
+        <div class="container mt-5 mb-5 border-2 shadow-lg main-container">
+            <div class="row">
+  
+              <div class="container mt-3 profile-container">
+                  <div class="row">
+                      <div class="col-md-6 offset-md-3 mt-5 text-light">
+                          <div class="profile-details">
+                              <img src="{{user.image.url}}" class="mb-3 profile-img" alt="User Image"> <!-- User image -->
+                              <h2>{{user.username}}</h2> <!-- User name -->
+                              <p>Email: {{user.email}}</p> <!-- User email -->
+                              <p>Role: {{user.role}}</p> <!-- User role -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+         
+  
+             
+    
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                
+                <div class="col">
+                    {% for book in books %}
+                      {% if book.user == user %}
+                        <div class="container bookContainer mt-5 ">
+                        <div class="row">
+                            <!-- Right box for book details -->
+                            <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header cardHeaderComplain d-flex align-items-center justify-content-between">
+                                <h5 class="card-title mb-0 text-light">{{book.title}}</h5>
+                                </div>
+                                <div class="card-body">
+                                <p class="card-text">{{book.description}}</p>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center"> <!-- Added d-flex and justify-content-between classes -->
+                                <a href="{{book.file.url}}" type="button" class="btn btn-primary">Download</a>
+                                <div class="d-flex align-items-center"> <!-- Added d-flex and align-items-center classes -->
+                                    <h6 class="mb-0 ml-2 mr-2">{{book.user.username}}</h6> <!-- Added ml-2 class for left margin -->
+                                    <img height="35" width="35" src="{{book.user.image.url}}" class="rounded-circle ml-2" alt="User Image">
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>  
+                      {% endif %}
+    
+                    {% endfor %}
+                </div>
+
+                <div class="col">
+                    {% for complain in complains %}
+                    {% if complain.user == user %}
+                    <div class="container bookContainer mt-5 ">
+                        <div class="card">
+                          <div class="card-header cardHeader d-flex align-items-center justify-content-between">
+                            <h5 class="card-title mb-0 text-light">{{complain.user.username}}</h5>
+                            <img height="35" width="35" src="{{complain.user.image.url}}" class="rounded-circle img-thumbnail" alt="User Image">
+                          </div>
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">{{complain.title}}</h6>
+                            <p class="card-text">{{complain.description}}</p>
+                          </div>
+                         
+                        </div>
+                      </div>
+                    {% endif %} 
+                    {% endfor %}
+                </div>
+            </div>
+
+       
+
+            
+
+        </div>
+    
+    
+      
+    
+    </div>
+  
+    
+</body>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,187 @@
+
+
+body{
+    width: 100%;
+    color: black;
+    
+}
+
+
+
+
+.bg-image {
+    background-image: url('../../app/../static/media/images/layyah_campus.jpg');
+
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-center {
+    text-align: center;
+    color: white;
+    font-weight: bold; /* Adjust text color as needed */
+  }
+
+  .main-container{
+    width: 100%;
+  }
+
+
+  .heading-box{
+   
+    background-color: rgb(16, 16, 52);
+    background-color: red;
+
+    
+    color: white;
+    width: 100%;
+    margin-top: 10%;
+    border-radius: 15px;
+
+  }
+
+  .heading-box2{
+   
+    background-color: rgb(16, 16, 52);
+
+    
+    color: white;
+    width: 100%;
+    margin-top: 10%;
+    border-radius: 15px;
+
+  }
+
+
+  .staff-box{
+    width: 100%;
+    margin-left: 10%;
+    
+  }
+
+  .profile-box{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    background-color: white;
+    
+    margin-left: 10%;
+    /* float: right; */
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    
+
+  }
+
+
+  .custom-image {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+
+
+}
+
+.footer {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: rgb(16, 16, 52);
+    width: 100%;
+    height: fit-content;
+}
+
+
+.developer{
+    /* background-color: aquamarine; */
+    /* background-color: #f0f0f0; */
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    background-color: rgb(16, 16, 52);
+
+    backdrop-filter: blur(10px);
+
+}
+
+.footer-img{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+
+/* ------   */
+
+
+
+
+.profile-container {
+  background-color:aqua;
+  text-align: center;
+  width: 80%;
+  padding-top: 50px; /* Adjust as needed */
+  padding-bottom: 50px; /* Adjust as needed */
+
+
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+.profile-details {
+  display: inline-block;
+}
+
+.profile-img {
+  width: 200px; /* Set proportional width */
+  height: 200px; /* Set proportional height */
+  border-radius: 50%; /* Make image fully rounded */
+}
+
+
+/* ---------- */
+
+
+
+.main-container-login{
+  width: 30%;
+  background-color: black;
+  border-radius: 15px;
+}
+
+.error-msg{
+  height: 10vh;
+  text-align: center;
+  color: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  background-color: rgb(16, 16, 52);
+
+}
+
+
+.button-login{
+  width: 30%;
+  margin-left: 40%;
+  margin-top: 5%;
+  /* background-color: black; */
+  justify-content: center;
+  display:flex;
+  align-items: center;
+}
+
+.button{
+  background-color:blue;
+  font-weight: bold;
+  color: white;
+  width: 60%;
+  border-color: white;
+  
+}

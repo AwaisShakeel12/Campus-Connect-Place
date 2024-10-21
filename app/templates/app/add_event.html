@@ -1,0 +1,91 @@
+{% extends 'core.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+<link rel="stylesheet" href="{% static 'css/add_event.css' %}">
+
+
+
+
+
+<div class="container">
+    <div class="container mt-3">
+      <h1 class="text-center">Upload Events</h1>
+      
+    </div>
+      <div class="container mt-5 mb-5 border-2 shadow-lg main-container">
+          <div class="row">
+            
+       
+
+              <div class="col mt-3">
+                  <form action="" method="post" class="text-dark" enctype="multipart/form-data">
+                      {% csrf_token %}
+  
+                      
+          
+                      
+
+
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Title</label>
+                      <input typ]e="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Enter Title....">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label">Description</label>
+                        <textarea class="form-control" name="description" type="file" id="formFileMultiple" multiple></textarea>
+                      </div>
+
+           
+
+             
+
+
+
+               
+  
+                    <div class="mb-3">
+                      <label for="formFileMultiple" class="form-label">Image</label>
+                      <input class="form-control" name="image" type="file" id="formFileMultiple" multiple>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label">date</label>
+                        <input class="form-control" name="date" type="datetime-local" id="formFileMultiple" multiple>
+                    </div>
+
+
+
+
+
+                    <button type="submit" value="submit" onclick="SignupButton()" class="btn btn-success mb-3 signup-text">upload</button>
+                  </form>
+              </div>
+  
+          </div>
+      </div>
+  
+  
+    
+  
+  </div>
+  
+
+
+
+
+
+
+
+<!-- <script>
+  function SignupButton(){
+    alert('Account Created')
+  }
+</script> -->
+
+
+{% endblock %}

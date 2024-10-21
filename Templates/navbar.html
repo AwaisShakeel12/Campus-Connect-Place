@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="{% static  'javascripts/header.js' %}"></script> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/navbar_main1.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+    <style>
+        nav{
+            color: white;
+    background-color: rgb(16, 16, 52);
+
+        }
+
+        .navbar-nav .nav-link {
+        color:white !important; /* Change color as desired */
+        }
+
+        .nav-items{
+            width:100%;
+            margin-left: 20%;
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg  main-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" href="{% url 'home' %}">Home</a>
+            <button class="navbar-toggler bg-light text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse nav-items" id="navbarSupportedContent">
+                <ul class="navbar-nav w-100 justify-content-between">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'event' %}">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'books' %}">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'chat' %}">Chat</a>
+                    </li>
+                   
+                    
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'complain' %}">Complain</a>
+                    </li>
+
+                    {% if request.user.is_superuser %}
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'addnews' %}">Add News</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'addevent' %}">Add Event</a>
+                    </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        {% if request.user.is_authenticated %}
+                        <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
+                        {% else %}
+                        <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+
+
+ 
+</body>
+</html>

@@ -1,0 +1,85 @@
+{% extends 'core.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+<link rel="stylesheet" href="{% static 'css/add_news.css' %}">
+
+
+
+
+
+<div class="container">
+    <div class="container mt-3">
+      <h1 class="text-center">Upload News</h1>
+      
+    </div>
+      <div class="container mt-5 mb-5 border-2 shadow-lg main-container">
+          <div class="row">
+            
+       
+
+              <div class="col mt-3">
+                  <form action="" method="post" class="text-light" enctype="multipart/form-data">
+                      {% csrf_token %}
+  
+                      
+          
+                      
+
+
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Title</label>
+                      <input typ]e="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Enter Title....">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label">Description</label>
+                        <textarea class="form-control" name="description" type="file" id="formFileMultiple" multiple></textarea>
+                      </div>
+
+           
+
+             
+
+
+
+               
+  
+                    <div class="mb-3">
+                      <label for="formFileMultiple" class="form-label">Image</label>
+                      <input class="form-control" name="image" type="file" id="formFileMultiple" multiple>
+                    </div>
+
+
+
+                    <button id="btn-sub" type="submit" value="submit"  class="btn btn-danger mb-3 signup-text">upload</button>
+                  </form>
+              </div>
+  
+          </div>
+      </div>
+  
+  
+    
+  
+  </div>
+  
+
+
+
+
+
+
+
+<script>
+    let btn = document.querySelector('#btn-sub')
+    btn.addEventListener('click', function(){
+       alert('News Uploaded')
+    })
+</script>
+
+
+{% endblock %}

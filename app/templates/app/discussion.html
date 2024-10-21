@@ -1,0 +1,82 @@
+{% extends 'core.html' %}
+
+{% load static %}
+{% block content %}
+
+
+<link rel="stylesheet" href="{% static 'css/discussion.css' %}">
+
+
+
+
+
+
+<div class="container">
+
+    <div class="container mt-3">
+        <h1 class="text-center">Welcome to GCUF Campus Connect Discord</h1>     
+    </div>
+
+  
+
+    <div class="container">
+
+      {% for discussion in discussions %}
+      <div class="container bookContainer mt-5  ">
+        <div class="container  cardHeader d-flex align-items-center justify-content-start custom-rounded">
+          <img height="35" width="35" src="{{discussion.user.image.url}}" class="rounded-circle mr-2 ml-2 " alt="User Image">
+          <a href="{% url 'profile' discussion.user.id %}">
+            <h5 class="card-title mb-0 text-light img-user">{{discussion.user}}</h5>
+          </a>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            {% if discussion.image %}
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted">{{discussion.msg}}</h6> 
+              <img  src="{{discussion.image.url}}" class="card-img-bottom cardImg" alt="...">
+            </div>
+            {% else %}
+              <div class="card-body msg-body">
+                <h6 class="card-subtitle mb-2 text-muted">{{discussion.msg}}</h6> 
+              </div>
+            
+            {% endif %}
+          </div>
+        </div>
+      </div>
+   
+      {% endfor %}
+
+    </div>
+
+
+    <div class="container mt-5 border-2 shadow-lg main-container">
+      <div class="row">
+          <div class="col">
+              <form action="" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Message</label>
+                  <input type="text" name="msg" class="form-control" id="exampleFormControlInput1" placeholder="enter message">
+                </div>
+   
+
+                <div class="mb-3">
+                  <label for="formFileMultiple" class="form-label">files input</label>
+                  <input class="form-control" name="image" type="file" id="formFileMultiple" multiple>
+                </div>
+                <button type="submit" value="submit" class="btn btn-primary mb-3">Upload</button>
+              </form>
+          </div>
+
+      </div>
+  </div>
+
+
+</div>
+
+
+
+
+{% endblock %}

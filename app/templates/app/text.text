@@ -1,0 +1,15 @@
+ <!-- <div class="container bookContainer mt-5 ">
+        <div class="card">
+          <div class="card-header cardHeader d-flex align-items-center justify-content-between">
+            <h5 class="card-title mb-0 text-light">{{book.user.username}}</h5>
+            <img height="35" width="35" src="{{book.user.image.url}}" class="rounded-circle img-thumbnail" alt="User Image">
+          </div>
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">{{book.title}}</h6>
+            <p class="card-text">{{book.description}}</p>
+          </div>
+          <div class="card-footer">
+            <a href="{{book.file.url}}" type="button" class="btn btn-primary">Download</a>
+          </div>
+        </div>
+      </div> -->

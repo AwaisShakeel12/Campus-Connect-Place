@@ -1,0 +1,53 @@
+body{
+    width: 100%;
+    background-color: rgb(16, 16, 52);
+    background-color: aliceblue;
+    
+
+}
+
+
+.main-container{
+    background-color: rgb(16, 16, 52);
+    width: 100%;
+    width: 60%;
+    background-color: aqua;
+    border-radius: 15px;
+    
+}
+
+
+.profile-container {
+    background-color:black;
+    text-align: center;
+    width: 100%;
+    padding-top: 50px; /* Adjust as needed */
+    padding-bottom: 50px; /* Adjust as needed */
+    /* border-bottom-left-radius: 50px; */
+    /* border-bottom-right-radius: 50px; */
+    margin-bottom: 20px;
+}
+
+.profile-details {
+    display: inline-block;
+}
+
+.profile-img {
+    width: 200px; /* Set proportional width */
+    height: 200px; /* Set proportional height */
+    border-radius: 50%; /* Make image fully rounded */
+}
+
+.cardHeader{
+    background-color: rgb(16, 16, 52);
+    background-color: black;
+   height: 10vh;
+
+}
+
+.cardHeaderComplain{
+
+    background-color: rgb(16, 16, 52);
+    background-color: blue;
+   height: 10vh;
+}

@@ -1,0 +1,58 @@
+{% extends 'core.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/chat.css' %}">
+
+
+
+<div class="container">
+    <div class="container mt-3">
+        <h1 class="text-center">Chat</h1>
+        
+      </div>
+    <div class="container main-container border-2 shadow-lg">
+        {% for user in  users %}
+        <div class="row">
+            <div class="container profile-box mt-5 border-2 shadow-lg">
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        <a href="{% url 'detail' user.friend.profile.id %}">
+                            <img src="{{user.image.url}}" class="img-fluid img-thumbnail  custom-image" alt="User Image">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="row">
+                                <div class="user-name-box">
+                                    <a href="{% url 'detail' user.friend.profile.id %}" class="text-username">{{user.username}}</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="user-name-box">
+                                    <a  class=" text-email">{{user.email}}</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                       
+                    </div>
+                 
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

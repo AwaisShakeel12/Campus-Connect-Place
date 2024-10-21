@@ -1,0 +1,51 @@
+{% extends 'core.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/event1.css' %}">
+
+
+<body>
+
+
+
+      <div class="container">
+        <div class="container mt-3">
+          <h1 class="text-center">GCUF EVENTS</h1>
+          
+      </div>
+
+
+        {% for event in events reversed %}
+      <div class="card mt-5 mb-5 border-2 shadow-lg">
+        <div class="card-body">
+          <h2 class="card-title text-primary">{{event.title}}</h2>
+          {% if event.description %}
+          <p class="card-text">{{event.description}}</p>
+          {% endif %}
+          <p class="card-text"><small class="text-body-secondary">Time: {{event.date}}</small></p>
+        </div>
+        {% if event.image %}
+        <img src="{{ event.image.url }}" class="card-img-bottom" alt="...">
+        {% endif %}
+      </div>
+      {% endfor %}
+
+
+
+
+      </div>
+
+
+      
+
+
+
+</body>
+
+
+
+
+{% endblock %}

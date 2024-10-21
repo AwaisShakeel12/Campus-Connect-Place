@@ -1,0 +1,57 @@
+body{
+    background-color: aliceblue;
+}
+
+
+
+.main-container{
+    width: 60%;
+    background-color: blueviolet;
+    border-radius: 15px;
+    margin-bottom: 100px;
+   
+}
+
+.bookContainer{
+    width: 70%;
+    
+}
+
+
+.cardHeader{
+    background-color: rgb(16, 16, 52);
+    height: 10vh;
+    width: 30%;
+    border-radius: 20px 0px 20px 0px;
+    /* display: flex; */
+    /* float: left; */
+    margin-left: -0%;
+  
+
+
+}
+
+
+  
+  .card {
+    border-top-right-radius: 0px; /* Adjust border-radius as needed */
+    border-top-left-radius: 0px;
+    width: 100;
+  }
+
+
+
+.img-user{
+    margin-left: 10px;
+}
+
+.cardImg{
+
+    max-height: 100vh;
+
+    
+}
+
+a{
+    text-decoration: none;
+}

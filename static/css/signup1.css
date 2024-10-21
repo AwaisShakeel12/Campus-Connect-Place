@@ -1,0 +1,29 @@
+body{
+    background-color: aliceblue;
+}
+
+
+.main-container{
+    width: 40%;
+    background-color: aqua;
+    border-radius: 15px;
+}
+
+.error-msg{
+    height: 10vh;
+    text-align: center;
+    color: red;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    background-color: rgb(16, 16, 52);
+
+}
+
+.signup-text{
+    margin-left: 45%;
+    text-decoration: none;
+}

@@ -1,0 +1,108 @@
+
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+
+<link rel="stylesheet" href="{% static 'css/signup1.css' %}">
+
+
+
+
+
+<div class="container">
+    <div class="container mt-3">
+      <h1 class="text-center">Signup</h1>
+      
+    </div>
+      <div class="container mt-5 mb-5 border-2 shadow-lg main-container">
+          <div class="row">
+            
+       
+
+              <div class="col mt-3">
+                  <form action="" method="post" class="text-primary" enctype="multipart/form-data">
+                      {% csrf_token %}
+  
+                      
+                      {% for message in messages %}
+                      <div class="container error-msg" role="alert">
+                          <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
+                          <div>{{message}}</div>
+                        </div>  
+                        
+                        {% endfor %}
+                      
+
+
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Username</label>
+                      <input type="text" name="username" class="form-control" id="exampleFormControlInput1" placeholder="Enter username....">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleFormControlInput1" placeholder="Enter Password">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Confirm Password</label>
+                        <input type="password" name="password1" class="form-control" id="exampleFormControlInput1" placeholder="Enter Confirm Password">
+                    </div>
+
+
+               
+  
+                    <div class="mb-3">
+                      <label for="formFileMultiple" class="form-label">Image</label>
+                      <input class="form-control" name="image" type="file" id="formFileMultiple" multiple>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="role" value="student" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Student
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="role" value="staff" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Staff
+                        </label>
+                    </div>
+
+
+                    <button type="submit" value="submit" onclick="SignupButton()" class="btn btn-primary mb-3 signup-text">Signup</button>
+                  </form>
+              </div>
+  
+          </div>
+      </div>
+  
+  
+    
+  
+  </div>
+  
+
+
+
+
+
+
+
+<!-- <script>
+  function SignupButton(){
+    alert('Account Created')
+  }
+</script> -->
+
+

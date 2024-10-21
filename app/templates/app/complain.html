@@ -1,0 +1,70 @@
+{% extends 'core.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/complain.css' %}">
+
+
+
+<div class="container">
+    <div class="container mt-3">
+        <h1 class="text-center">Complain Area</h1>
+        
+    </div>
+    <div class="container mt-5 border-2 shadow-lg main-container">
+    
+        <div class="row">
+            <div class="col">
+                <form action="" method="post">
+                    {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Complain Title</label>
+                    <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="enter your complain">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Details</label>
+                    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" placeholder="complain" rows="3"></textarea>
+                  </div>
+
+           
+                  <button type="submit" value="submit" class="btn btn-primary mb-3">Upload</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    {% for complain in complains %}
+    {% if request.user.is_superuser  or  complain.user == request.user%}
+    <div class="container bookContainer mt-5 mb-3 ">
+        <div class="card">
+          <div class="card-header cardHeader d-flex align-items-center justify-content-between">
+            <a href="{% url 'profile' complain.user.id %}">
+              <h5 class="card-title mb-0 text-light">{{complain.user.username}}</h5>
+            </a>
+            <!-- <img height="35" width="35" src="{{complain.user.image.url}}" class="rounded-circle img-thumbnail" alt="User Image"> -->
+          </div>
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">{{complain.title}}</h6>
+            <p class="card-text">{{complain.description}}</p>
+          </div>
+         
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
